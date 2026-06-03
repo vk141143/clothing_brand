@@ -6,17 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
-    TanStackStartVitePlugin(),
+    TanStackStartVitePlugin({ server: { entry: "server" } }),
     react(),
     tsconfigPaths(),
     tailwindcss(),
   ],
-  ssr: {
-    noExternal: [
-      "@radix-ui/**",
-      "framer-motion",
-      "sonner",
-      "embla-carousel-react",
-    ],
-  },
 });
