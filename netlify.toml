@@ -3,9 +3,6 @@ command = "npm ci && npm run build"
 publish = "dist"
 node_version = "20"
 
-[build.environment]
-NODE_ENV = "production"
-
 [[redirects]]
 from = "/*"
 to = "/index.html"
