@@ -7,7 +7,7 @@ node_version = "20.11.0"
 NODE_ENV = "production"
 CI = "true"
 
-# SPA Routing - Fix for page not found errors
+# SPA/SSR Routing - Fix for page not found errors
 [[redirects]]
 from = "/*"
 to = "/index.html"
@@ -24,7 +24,7 @@ X-XSS-Protection = "1; mode=block"
 
 # Cache versioned assets forever
 [[headers]]
-for = "/dist/*.{js,css}"
+for = "/assets/*"
 [headers.values]
 Cache-Control = "public, max-age=31536000, immutable"
 
@@ -40,8 +40,6 @@ environment = { NODE_ENV = "production", CI = "true" }
 
 [context.deploy-preview]
 command = "npm ci && npm run build"
-environment = { NODE_ENV = "production", CI = "true" }
 
 [context.branch-deploy]
 command = "npm ci && npm run build"
-environment = { NODE_ENV = "production", CI = "true" }
